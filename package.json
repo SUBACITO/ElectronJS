@@ -1,0 +1,39 @@
+{
+  "name": "electronjs",
+  "version": "1.0.0",
+  "description": "Ứng dụng Electron demo build ra file .exe có icon và asar",
+  "main": "electron/main.js",
+  "author": "Cibeos",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^38.2.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.cibeos.electronjs",
+    "productName": "My Electron App",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "!node_modules/.cache", 
+      "!dist",
+      "!*.log"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "./assets/icon.ico",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
